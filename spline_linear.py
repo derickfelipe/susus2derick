@@ -10,9 +10,4 @@ def interpol_spline_linear(X, Y, z):
 			print ('\nb', b)
 	return s
 	
-def difdiv(X, Y):
-	B = []
-	for i in range(1, len(X)-1):
-		B.append((Y[i] - Y[i-1]) / (X[i] - X[i-1]))
 
-	return  B

@@ -9,10 +9,11 @@ def interpol_spline_quadratica(X, Y, z):
 	C = copy(B)
 
 	B[0], B[1] = copy(D[0]), copy(D[0])
+	C[0] = 0
+	A[0][0] = 1git 
 
-
-	for i in range():
-		for j in range():
+	for i in range(1, n):
+		for j in range(n):
 			None
 
 
