@@ -1,9 +1,11 @@
 import math
 import newton
 import lagrange
-import spline_linear
-#import matplotlib.pyplot as pyplot
-#import numpy as np
+from spline_linear import *
+from spline_quadratica import *
+
+import matplotlib.pyplot as pyplot
+import numpy as np
 
 arquivo = input ('digite o caminho do arquivo: ')
 arquivo = open(arquivo, 'r')
@@ -38,6 +40,8 @@ def diferenças_divididas(B,G):
 	for k in range(1,n):
 		for i in range(G+1, k, -1):
 			B[i] = (B[i]-B[i-1]) / (X[i] - X[i-k])
+		if k==1:
+			print ('\n B = ', B)
 	return B
 
 
@@ -81,9 +85,13 @@ else:
 			Yescolhidos = Yescolhidos+Y[ini:fim+1]
 					
 			#B = diferenças_divididas(Yescolhidos,G)
-			#result = newton.interpol_Newton (Xescolhidos, B, z, G)
+			#result = newton.interpol_Newton (Xescolhidos, diferenças_divididas(Y, G), z, G)
+			#print (result)
 			#result = lagrange.interpol_Lagrange(X, Y, z)
-			result = spline_linear.interpol_spline_linear(X, Y, z)
+			#print ('\n difdiv = ', difdiv(X, Y))
+			#result = interpol_spline_linear(X, Y, z)
+			result = interpol_spline_quadratica(X, Y, z)
+			
 			listaResultados.append(result)
 			print ("f(",round(z,4),") = ",result)
 	
