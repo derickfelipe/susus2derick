@@ -46,7 +46,7 @@ def interpol_spline_quadratica(X, Y, Z):
 		e = achar_intervalo(X, z)
 		i += 1
 		print('Equação geral para z{0:2d}: P({1:2f}) = {2:2f} + {3:2f}({4:2f} - {5:2f}) + {6:2f}({7:2f} - {8:2f})²'.format(i, z, Y[e], B[e], z, X[e], C[e], z, X[e]))
-		r = Y[e] + B[e] * (z - X[e]) + C[e] * (z - X[e])
+		r = Y[e] + B[e] * (z - X[e]) + (C[e] * (z - X[e])) ** 2
 		print('Resultado: ', r)
 
 def achar_intervalo(X, z):
