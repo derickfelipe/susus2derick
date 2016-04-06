@@ -39,7 +39,7 @@ def interpol_spline_quadratica(X, Y, Z):
 		C[i] = R[j+1]
 		j += 2
 
-	print(Y, B, C)
+	#print(Y, B, C)
 	print('Equação geral genérica: P(x) = ai + bi(x - xi) + ci(x - xi)²')
 	i = 0
 	for z in Z:
@@ -51,7 +51,6 @@ def interpol_spline_quadratica(X, Y, Z):
 
 def achar_intervalo(X, z):
 	for i in range(0, len(X)):
-		print(i, X[i])
 		if z > X[i]:
 			return i
 
@@ -63,11 +62,12 @@ def difdiv(X, Y):
 		h = X[i] - X[i-1]
 		H.append(h)
 		D.append((Y[i] - Y[i-1]) / h)
+		#print(D)
 
 	return  D, H
 
-X = [3, 4.5, 7, 9]
-Y = [2.5, 1, 2.5, 0.5]
-z = [3.5]
+# X = [3, 4.5, 7, 9]
+# Y = [2.5, 1, 2.5, 0.5]
+# z = [3.5]
 
-interpol_spline_quadratica(X, Y, z)
+# interpol_spline_quadratica(X, Y, z)
